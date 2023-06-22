@@ -33,7 +33,7 @@ To get started with MechCore, follow the instructions below:
 1. Clone the MechCore repository:
 
 ```bash
-git clone https://github.com/your-username/MechCore.git
+git clone https://github.com/kyegomez/MechCore.git
 ```
 
 2. Install the required dependencies:
@@ -62,13 +62,29 @@ Stay tuned for exciting updates and improvements in MechCore!
 
 ## Share with Friends
 
-Help us spread the word about MechCore by sharing it with your friends and colleagues:
+Help us spread the word about MechCore by sharing it with your friends and colleagues on various social media platforms:
 
-[![Share on Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fyour-username%2FMechCore)](https://twitter.com/intent/tweet?text=Check%20out%20
+[![Share on Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore)](https://twitter.com/intent/tweet?text=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%20%23MechCore%20%23OpenSource%20%23Robotics%20%23AI%20%23MachineLearning&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore)
 
-MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%20%23MechCore%20%23OpenSource%20%23Robotics%20%23AI%20%23MachineLearning&url=https%3A%2F%2Fgithub.com%2Fyour-username%2FMechCore)
+[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-blue)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&title=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&summary=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.&source=)
 
-[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-blue)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgithub.com%2Fyour-username%2FMechCore&title=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&summary=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.&source=)
+[![Share on Facebook](https://img.shields.io/badge/Share%20on-Facebook-blue)](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&t=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
+
+[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-orange)](https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&title=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
+
+[![Share on WhatsApp](https://img.shields.io/badge/Share%20on-WhatsApp-green)](https://wa.me/?text=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%0A%0AGitHub%20Repository%3A%20https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore)
+
+[![Share on Telegram](https://img.shields.io/badge/Share%20on-Telegram-blue)](https://t.me/share/url?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&text=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%
+
+20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.)
+
+[![Share on Pinterest](https://img.shields.io/badge/Share%20on-Pinterest-red)](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&media=&description=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
+
+[![Share on Tumblr](https://img.shields.io/badge/Share%20on-Tumblr-blue)](https://www.tumblr.com/share/link?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&name=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&description=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.)
+
+[![Share on Hacker News](https://img.shields.io/badge/Share%20on-Hacker%20News-orange)](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&t=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
+
+[![Share on VK](https://img.shields.io/badge/Share%20on-VK-blue)](https://vk.com/share.php?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&title=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
 
 We appreciate your support in sharing MechCore and making it accessible to the wider community!
 
@@ -78,4 +94,4 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/your-username/MechCore/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/kyegomez/MechCore/blob/main/LICENSE).
