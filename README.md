@@ -74,9 +74,6 @@ Help us spread the word about MechCore by sharing it with your friends and colle
 
 [![Share on WhatsApp](https://img.shields.io/badge/Share%20on-WhatsApp-green)](https://wa.me/?text=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%0A%0AGitHub%20Repository%3A%20https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore)
 
-[![Share on Telegram](https://img.shields.io/badge/Share%20on-Telegram-blue)](https://t.me/share/url?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&text=Check%20out%20MechCore%2C%20an%20open-source%20suite%20of%20robotic%20transformers%
-
-20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.)
 
 [![Share on Pinterest](https://img.shields.io/badge/Share%20on-Pinterest-red)](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FMechCore&media=&description=MechCore%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
 
