@@ -1,9 +1,9 @@
 # MechCore
 
-[![GitHub license](https://img.shields.io/github/license/your-username/MechCore)](https://github.com/your-username/MechCore/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/your-username/MechCore)](https://github.com/your-username/MechCore/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/your-username/MechCore)](https://github.com/your-username/MechCore/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/your-username/MechCore)](https://github.com/your-username/MechCore/pulls)
+[![GitHub license](https://img.shields.io/github/license/kyegomez/MechCore)](https://github.com/kyegomez/MechCore/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/kyegomez/MechCore)](https://github.com/kyegomez/MechCore/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/kyegomez/MechCore)](https://github.com/kyegomez/MechCore/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/kyegomez/MechCore)](https://github.com/kyegomez/MechCore/pulls)
 
 MechCore is an open-source suite of robotic transformers models designed to simplify the training, finetuning, and inference processes. With its plug-and-play functionality, MechCore provides an easy-to-use interface to effortlessly utilize a variety of robotic transformers models. Whether you're working on robotics research, autonomous systems, or AI-driven robotic applications, MechCore offers a comprehensive toolkit to enhance your projects.
 
