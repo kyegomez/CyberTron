@@ -74,47 +74,44 @@ Sure! Here's an example of a table-like format in the README.md file, showcasing
 
 ## Datasets Directory
 
-## Dataset Directory
 
 This section provides an overview of the datasets used in the project. The datasets are divided into two categories: control datasets used to train Gato and vision & language datasets used for vision and language tasks.
 
 ### Control Datasets
 
-| Dataset | Tasks | Episodes | Approx. Tokens | Sample Weight |
-|---------|-------|----------|----------------|---------------|
-| DM Lab | 254 | 16.4M | 194B | 9.35% |
-| ALE Atari | 51 | 63.4K | 1.26B | 9.5% |
-| ALE Atari Extended | 28 | 28.4K | 565M | 10.0% |
-| Sokoban | 1 | 27.2K | 298M | 1.33% |
-| BabyAI | 46 | 4.61M | 22.8B | 9.06% |
-| DM Control Suite | 30 | 395K | 22.5B | 4.62% |
-| DM Control Suite Pixels | 28 | 485K | 35.5B | 7.07% |
-| DM Control Suite Random Small | 26 | 10.6M | 313B | 3.04% |
-| DM Control Suite Random Large | 26 | 26.1M | 791B | 3.04% |
-| Meta-World | 45 | 94.6K | 3.39B | 8.96% |
-| Procgen Benchmark | 16 | 1.6M | 4.46B | 5.34% |
-| RGB Stacking simulator | 1 | 387K | 24.4B | 1.33% |
-| RGB Stacking real robot | 1 | 15.7K | 980M | 1.33% |
-| Modular RL | 38 | 843K | 69.6B | 8.23% |
-| DM Manipulation Playground | 4 | 286K | 6.58B | 1.68% |
-| Playroom | 1 | 829K | 118B | 1.33% |
-| **Total** | **596** | **63M** | **1.5T** | **85.3%** |
+| Dataset | Tasks |
+|---------|-------|
+| DM Lab | 254 |
+| ALE Atari | 51 |
+| ALE Atari Extended | 28 |
+| Sokoban | 1 |
+| BabyAI | 46 |
+| DM Control Suite | 30 |
+| DM Control Suite Pixels | 28 |
+| DM Control Suite Random Small | 26 |
+| DM Control Suite Random Large | 26 |
+| Meta-World | 45 |
+| Procgen Benchmark | 16 |
+| RGB Stacking simulator | 1 |
+| RGB Stacking real robot | 1 |
+| Modular RL | 38 |
+| DM Manipulation Playground | 4 |
+| Playroom | 1 |
 
 ### Vision / Language Datasets
 
-| Dataset | Sample Weight |
-|---------|---------------|
-| MassiveText | 6.7% |
-| M3W | 4% |
-| ALIGN | 0.67% |
-| MS-COCO Captions | 0.67% |
-| Conceptual Captions | 0.67% |
-| LTIP | 0.67% |
-| OKVQA | 0.67% |
-| VQAV2 | 0.67% |
-| **Total** | **14.7%** |
+| Dataset | Tasks |
+|---------|-------|
+| MassiveText | N/A |
+| M3W | N/A |
+| ALIGN | N/A |
+| MS-COCO Captions | N/A |
+| Conceptual Captions | N/A |
+| LTIP | N/A |
+| OKVQA | N/A |
+| VQAV2 | N/A |
 
-Please note that the dataset descriptions provided are a summary. For more detailed information about each dataset, refer to the relevant resources and documentation.
+Please note that the dataset descriptions provided are a summary. To access the datasets from Hugging Face, please visit the Hugging Face website and search for the respective dataset names.
 
 
 ## Share with Friends
