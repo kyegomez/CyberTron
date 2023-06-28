@@ -92,3 +92,12 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 ## License
 
 This project is licensed under the [MIT License](https://github.com/kyegomez/MechCore/blob/main/LICENSE).
+
+
+# Roadmap
+
+* Integrate GATO
+
+* Integrate ROBOTCAT
+
+[Integrate CHATGPT FOR ROBOTICS](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf)
