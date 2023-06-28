@@ -79,6 +79,8 @@ This section provides an overview of the datasets used in the project. The datas
 
 ### Control Datasets
 
+## GATO
+
 | Dataset | Tasks |
 |---------|-------|
 | DM Lab | 254 |
@@ -110,6 +112,24 @@ This section provides an overview of the datasets used in the project. The datas
 | LTIP | N/A |
 | OKVQA | N/A |
 | VQAV2 | N/A |
+
+## PALM-E Datasets
+
+| Dataset | Tasks |
+|---------|-------|
+| Webli (Chen et al., 2022) | N/A |
+| VQ2A (Changpinyo et al., 2022) | N/A |
+| VQG (Changpinyo et al., 2022) | N/A |
+| CC3M (Sharma et al., 2018) | N/A |
+| Object Aware (Piergiovanni et al., 2022) | N/A |
+| OKVQA (Marino et al., 2019) | N/A |
+| VQAv2 (Goyal et al., 2017) | N/A |
+| COCO (Chen et al., 2015) | N/A |
+| Wikipedia text | N/A |
+| (robot) Mobile Manipulator, real | N/A |
+| (robot) Language Table (Lynch et al., 2022), sim and real | N/A |
+| (robot) TAMP, sim | N/A |
+
 
 Please note that the dataset descriptions provided are a summary. To access the datasets from Hugging Face, please visit the Hugging Face website and search for the respective dataset names.
 
