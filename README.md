@@ -172,4 +172,5 @@ This project is licensed under the [MIT License](https://github.com/kyegomez/Mec
 
 [Integrate CHATGPT FOR ROBOTICS](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf)
 
-* Integrate Kosmos-X, Kosmos-2, PALM-E, ROBOCAT
+* Integrate Kosmos-X, Kosmos-2, PALM-E, ROBOCAT, any other robotic models we should integrate? Let me know!
+
