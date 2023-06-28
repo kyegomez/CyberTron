@@ -60,6 +60,18 @@ The future development of MechCore includes the following milestones:
 
 Stay tuned for exciting updates and improvements in MechCore!
 
+## Model Directory
+
+Sure! Here's an example of a table-like format in the README.md file, showcasing the models, their tasks, and other metadata:
+
+## Model Directory
+
+| Model | Description | Tasks | Key Features | Code and Resources |
+|-------|-------------|-------|--------------|--------------------|
+| RT-1  | Robotics Transformer for real-world control at scale | Picking and placing items, opening and closing drawers, getting items in and out of drawers, placing elongated items upright, knocking objects over, pulling napkins, opening jars, and more | - Transformer architecture with image and action tokenization <br> - EfficientNet-B3 model for image tokenization <br> - Token compression for faster inference <br> - Supports a wide range of tasks and environments | [Project Website](https://ai.googleblog.com/2022/12/rt-1-robotics-transformer-for-real.html?m=1) <br> [RT-1 Code Repository](https://github.com/kyegomez/MechaZilla/tree/master/models/rt1) |
+| Gato  | Generalist Agent for multi-modal, multi-task robotics | Playing Atari games, image captioning, chatbot interactions, real-world robot arm manipulation, and more | - Multi-modal support for text, images, proprioception, continuous actions, and discrete actions <br> - Serialized tokenization of data for processing with a transformer neural network <br> - Flexibility to output different modalities based on context | [Published Paper](https://arxiv.org/pdf/2205.06175) <br> [Gato Code Repository](https://github.com/kyegomez/MechaZilla/tree/master/models/GATO) |
+
+
 ## Share with Friends
 
 Help us spread the word about MechCore by sharing it with your friends and colleagues on various social media platforms:
