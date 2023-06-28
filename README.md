@@ -96,8 +96,6 @@ This project is licensed under the [MIT License](https://github.com/kyegomez/Mec
 
 # Roadmap
 
-* Integrate GATO
-
-* Integrate ROBOTCAT
-
 [Integrate CHATGPT FOR ROBOTICS](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf)
+
+* Integrate Kosmos-X, Kosmos-2, PALM-E, ROBOCAT
