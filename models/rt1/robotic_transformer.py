@@ -13,7 +13,6 @@ from functools import partial
 from classifier_free_guidance_pytorch import TextConditioner, AttentionTextConditioner, classifier_free_guidance
 
 # helpers
-
 def exists(val):
     return val is not None
 
@@ -30,7 +29,6 @@ def unpack_one(x, ps, pattern):
     return unpack(x, ps, pattern)[0]
 
 # sinusoidal positions
-
 def posemb_sincos_1d(seq, dim, temperature = 10000, device = None, dtype = torch.float32):
     n = torch.arange(seq, device = device)
     omega = torch.arange(dim // 2, device = device) / (dim // 2 - 1)
@@ -41,7 +39,6 @@ def posemb_sincos_1d(seq, dim, temperature = 10000, device = None, dtype = torch
     return pos_emb.type(dtype)
 
 # helper classes
-
 class Residual(nn.Module):
     def __init__(self, fn):
         super().__init__()
@@ -77,12 +74,11 @@ class FeedForward(nn.Module):
 
         if exists(cond_fn):
             # adaptive layernorm
-            x = cond_fn(x)
+            x= cond_fn(x)
 
         return self.net(x)
 
 # MBConv
-
 class SqueezeExcitation(nn.Module):
     def __init__(self, dim, shrinkage_rate = 0.25):
         super().__init__()
@@ -156,7 +152,6 @@ def MBConv(
     return net
 
 # attention related classes
-
 class Attention(nn.Module):
     def __init__(
         self,
@@ -186,7 +181,6 @@ class Attention(nn.Module):
         )
 
         # relative positional bias
-
         self.rel_pos_bias = nn.Embedding((2 * window_size - 1) ** 2, self.heads)
 
         pos = torch.arange(window_size)
@@ -204,44 +198,34 @@ class Attention(nn.Module):
         x = self.norm(x)
 
         # flatten
-
         x = rearrange(x, 'b x y w1 w2 d -> (b x y) (w1 w2) d')
 
         # project for queries, keys, values
-
         q, k, v = self.to_qkv(x).chunk(3, dim = -1)
 
         # split heads
-
         q, k, v = map(lambda t: rearrange(t, 'b n (h d ) -> b h n d', h = h), (q, k, v))
 
         # scale
-
         q = q * self.scale
 
         # sim
-
         sim = einsum('b h i d, b h j d -> b h i j', q, k)
 
         # add positional bias
-
         bias = self.rel_pos_bias(self.rel_pos_indices)
         sim = sim + rearrange(bias, 'i j h -> h i j')
 
         # attention
-
         attn = self.attend(sim)
 
         # aggregate
-
         out = einsum('b h i j, b h j d -> b h i d', attn, v)
 
         # merge heads
-
         out = rearrange(out, 'b h (w1 w2) d -> b w1 w2 (h d)', w1 = window_height, w2 = window_width)
 
         # combine heads out
-
         out = self.to_out(out)
         return rearrange(out, '(b x y) ... -> b x y ...', x = height, y = width)
 
@@ -264,7 +248,6 @@ class MaxViT(nn.Module):
         assert isinstance(depth, tuple), 'depth needs to be tuple if integers indicating number of transformer blocks at that stage'
 
         # convolutional stem
-
         dim_conv_stem = default(dim_conv_stem, dim)
 
         self.conv_stem = nn.Sequential(
@@ -273,7 +256,6 @@ class MaxViT(nn.Module):
         )
 
         # variables
-
         num_stages = len(depth)
 
         dims = tuple(map(lambda i: (2 ** i) * dim, range(num_stages)))
@@ -283,11 +265,9 @@ class MaxViT(nn.Module):
         self.layers = nn.ModuleList([])
 
         # shorthand for window size for efficient block - grid like attention
-
         w = window_size
 
         # iterate through stages
-
         cond_hidden_dims = []
 
         for ind, ((layer_dim_in, layer_dim), layer_depth) in enumerate(zip(dim_pairs, depth)):
@@ -306,12 +286,12 @@ class MaxViT(nn.Module):
                         shrinkage_rate = mbconv_shrinkage_rate
                     ),
                     Rearrange('b d (x w1) (y w2) -> b x y w1 w2 d', w1 = w, w2 = w),  # block-like attention
-                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w)),
+                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = ropout, window_size = w)),
                     Residual(FeedForward(dim = layer_dim, dropout = dropout)),
                     Rearrange('b x y w1 w2 d -> b d (x w1) (y w2)'),
 
                     Rearrange('b d (w1 x) (w2 y) -> b x y w1 w2 d', w1 = w, w2 = w),  # grid-like attention
-                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w)),
+                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = ropout, window_size = w)),
                     Residual(FeedForward(dim = layer_dim, dropout = dropout)),
                     Rearrange('b x y w1 w2 d -> b d (w1 x) (w2 y)'),
                 )
@@ -324,7 +304,6 @@ class MaxViT(nn.Module):
         self.cond_hidden_dims = cond_hidden_dims
 
         # mlp head out
-
         self.mlp_head = nn.Sequential(
             Reduce('b d h w -> b d', 'mean'),
             LayerNorm(embed_dim),
@@ -357,7 +336,6 @@ class MaxViT(nn.Module):
         return self.mlp_head(x)
 
 # attention
-
 class TransformerAttention(nn.Module):
     def __init__(
         self,
@@ -409,7 +387,7 @@ class TransformerAttention(nn.Module):
 
         if exists(cond_fn):
             # adaptive layer-norm
-            x = cond_fn(x)
+            x= cond_fn(x)
 
         q, k, v = self.to_q(x), *self.to_kv(kv_input).chunk(2, dim = -1)
 
@@ -478,7 +456,6 @@ class Transformer(nn.Module):
         return x
 
 # token learner module
-
 class TokenLearner(nn.Module):
     """
     https://arxiv.org/abs/2106.11297
@@ -516,7 +493,6 @@ class TokenLearner(nn.Module):
         return x
 
 # Robotic Transformer
-
 @beartype
 class RT1(nn.Module):
     def __init__(
@@ -612,18 +588,15 @@ class RT1(nn.Module):
         learned_tokens = rearrange(learned_tokens, 'b f c n -> b (f n) c')
 
         # causal attention mask
-
         attn_mask = torch.ones((frames, frames), dtype = torch.bool, device = device).triu(1)
         attn_mask = repeat(attn_mask, 'i j -> (i r1) (j r2)', r1 = self.num_learned_tokens, r2 = self.num_learned_tokens)
 
         # sinusoidal positional embedding
-
         pos_emb = posemb_sincos_1d(frames, learned_tokens.shape[-1], dtype = learned_tokens.dtype, device = learned_tokens.device)
 
         learned_tokens = learned_tokens + repeat(pos_emb, 'n d -> (n r) d', r = self.num_learned_tokens)
 
         # attention
-
         attended_tokens = self.transformer(learned_tokens, cond_fns = transformer_cond_fns, attn_mask = ~attn_mask)
 
         pooled = reduce(attended_tokens, 'b (f n) d -> b f d', 'mean', f = frames)
