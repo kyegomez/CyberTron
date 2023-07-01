@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from torch import nn, einsum
+from torch import nn, einsum, Tensor
 
 from typing import List, Optional, Callable, Tuple
 from beartype import beartype
@@ -11,6 +11,19 @@ from einops.layers.torch import Rearrange, Reduce
 from functools import partial
 
 from classifier_free_guidance_pytorch import TextConditioner, AttentionTextConditioner, classifier_free_guidance
+
+
+
+from dataclasses import dataclass
+
+@dataclass
+class Intermediates:
+    qk_similarities: Tensor = None
+    pre_softmax_attn: Tensor = None
+    post_softmax_attn: Tensor = None
+
+    def to_tuple(self):
+        return (self.qk_similarities, self.pre_softmax_attn, self.post_softmax_attn)
 
 # helpers
 def exists(val):
@@ -39,6 +52,89 @@ def posemb_sincos_1d(seq, dim, temperature = 10000, device = None, dtype = torch
     return pos_emb.type(dtype)
 
 # helper classes
+
+
+# flasha attention
+def flash_attn(
+self,
+q, k, v,
+mask = None,
+attn_bias = None
+):
+    batch, heads, q_len, _, k_len, is_cuda, device = *q.shape, k.shape[-2], q.is_cuda, q.device
+
+    # Recommended for multi-query single-key-value attention by Tri Dao
+    # kv shape torch.Size([1, 512, 64]) -> torch.Size([1, 8, 512, 64])
+
+    if k.ndim == 3:
+        k = rearrange(k, 'b ... -> b 1 ...').expand_as(q)
+
+    if v.ndim == 3:
+        v = rearrange(v, 'b ... -> b 1 ...').expand_as(q)
+
+    # handle scale - by default they scale by dim_head ** -0.5, but need to take care if using cosine sim attention
+
+    if self.qk_norm:
+        default_scale = q.shape[-1] ** -0.5
+        q = q * (default_scale / self.scale)
+
+    # Check if mask exists and expand to compatible shape
+    # The mask is B L, so it would have to be expanded to B H N L
+
+    causal = self.causal
+
+    if exists(mask):
+        assert mask.ndim == 4
+        mask = mask.expand(batch, heads, q_len, k_len)
+
+        # manually handle causal mask, if another mask was given
+
+        if causal:
+            causal_mask = torch.ones((q_len, k_len), dtype = torch.bool, device = device).triu(k_len - q_len + 1)
+            mask = mask & ~causal_mask
+            causal = False
+
+    # handle alibi positional bias
+    # convert from bool to float
+
+    if exists(attn_bias):
+        attn_bias = rearrange(attn_bias, 'h i j -> 1 h i j').expand(batch, -1, -1, -1)
+
+        # if mask given, the mask would already contain the causal mask from above logic
+        # otherwise, if no mask given but still causal, mask out alibi positional bias to a large negative number
+
+        mask_value = -torch.finfo(q.dtype).max
+
+        if exists(mask):
+            attn_bias = attn_bias.masked_fill(~mask, mask_value // 2)
+        elif causal:
+            causal_mask = torch.ones((q_len, k_len), dtype = torch.bool, device = device).triu(k_len - q_len + 1)
+            attn_bias = attn_bias.masked_fill(causal_mask, mask_value // 2)
+            causal = False
+
+        # scaled_dot_product_attention handles attn_mask either as bool or additive bias
+        # make it an additive bias here
+
+        mask = attn_bias
+
+    # Check if there is a compatible device for flash attention
+
+    config = self.cuda_config if is_cuda else self.cpu_config
+
+    # pytorch 2.0 flash attn: q, k, v, mask, dropout, causal, softmax_scale
+
+    with torch.backends.cuda.sdp_kernel(**config._asdict()):
+        out = F.scaled_dot_product_attention(
+            q, k, v,
+            attn_mask = mask,
+            dropout_p = self.dropout if self.training else 0., 
+            is_causal = causal
+        )
+
+    return out, Intermediates()
+
+
+
 class Residual(nn.Module):
     def __init__(self, fn):
         super().__init__()
@@ -77,6 +173,7 @@ class FeedForward(nn.Module):
             x= cond_fn(x)
 
         return self.net(x)
+
 
 # MBConv
 class SqueezeExcitation(nn.Module):
@@ -191,6 +288,8 @@ class Attention(nn.Module):
         rel_pos_indices = (rel_pos * torch.tensor([2 * window_size - 1, 1])).sum(dim = -1)
 
         self.register_buffer('rel_pos_indices', rel_pos_indices, persistent = False)
+
+
 
     def forward(self, x):
         batch, height, width, window_height, window_width, _, device, h = *x.shape, x.device, self.heads
@@ -435,7 +534,8 @@ class Transformer(nn.Module):
         self.layers = nn.ModuleList([])
         for _ in range(depth):
             self.layers.append(nn.ModuleList([
-                TransformerAttention(dim = dim, heads =  heads, dropout = attn_dropout),
+                # TransformerAttention(dim = dim, heads =  heads, dropout = attn_dropout),
+                flash_attn(dim = dim, heads =  heads, dropout = attn_dropout),
                 FeedForward(dim = dim, dropout = ff_dropout)
             ]))
 
