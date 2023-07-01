@@ -291,7 +291,7 @@ class MaxViT(nn.Module):
                     Rearrange('b x y w1 w2 d -> b d (x w1) (y w2)'),
 
                     Rearrange('b d (w1 x) (w2 y) -> b x y w1 w2 d', w1 = w, w2 = w),  # grid-like attention
-                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = ropout, window_size = w)),
+                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w)),
                     Residual(FeedForward(dim = layer_dim, dropout = dropout)),
                     Rearrange('b x y w1 w2 d -> b d (w1 x) (w2 y)'),
                 )
