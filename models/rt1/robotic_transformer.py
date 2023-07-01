@@ -15,6 +15,7 @@ from classifier_free_guidance_pytorch import TextConditioner, AttentionTextCondi
 
 
 from dataclasses import dataclass
+from rt1.flash_attn import Attend
 
 @dataclass
 class Intermediates:
@@ -255,7 +256,7 @@ class Attention(nn.Module):
         dim,
         dim_head = 32,
         dropout = 0.,
-        window_size = 7
+        window_size = 7,
     ):
         super().__init__()
         assert (dim % dim_head) == 0, 'dimension should be divisible by dimension per head'
@@ -450,13 +451,24 @@ class TransformerAttention(nn.Module):
         dim_context = None,
         heads = 8,
         norm_context = False,
-        dropout = 0.1
+        dropout = 0.1,
+        flash_attn = False,
     ):
         super().__init__()
         self.heads = heads
         self.scale = dim_head ** -0.5
         self.causal = causal
         inner_dim = dim_head * heads
+
+        ################# => Flash attention
+        self.attend = Attend(
+            casual=True,
+            flash = flash_attn,
+            dropout = dropout,
+        )
+        
+        ################# => Flash attention
+
 
         dim_context = default(dim_context, dim)
 
@@ -472,6 +484,59 @@ class TransformerAttention(nn.Module):
             nn.Dropout(dropout)
         )
 
+    # def forward(
+    #     self,
+    #     x,
+    #     context = None,
+    #     mask = None,
+    #     attn_bias = None,
+    #     attn_mask = None,
+    #     cond_fn: Optional[Callable] = None
+    # ):
+    #     b = x.shape[0]
+
+    #     if exists(context):
+    #         context = self.context_norm(context)
+
+    #     kv_input = default(context, x)
+
+    #     x = self.norm(x)
+
+    #     if exists(cond_fn):
+    #         # adaptive layer-norm
+    #         x= cond_fn(x)
+
+    #     q, k, v = self.to_q(x), *self.to_kv(kv_input).chunk(2, dim = -1)
+
+    #     q = rearrange(q, 'b n (h d) -> b h n d', h = self.heads)
+
+    #     q = q * self.scale
+
+    #     sim = einsum('b h i d, b j d -> b h i j', q, k)
+
+    #     if exists(attn_bias):
+    #         sim = sim + attn_bias
+
+    #     if exists(attn_mask):
+    #         sim = sim.masked_fill(~attn_mask, -torch.finfo(sim.dtype).max)
+
+    #     if exists(mask):
+    #         mask = rearrange(mask, 'b j -> b 1 1 j')
+    #         sim = sim.masked_fill(~mask, -torch.finfo(sim.dtype).max)
+
+    #     if self.causal:
+    #         i, j = sim.shape[-2:]
+    #         causal_mask = torch.ones((i, j), dtype = torch.bool, device = x.device).triu(j - i + 1)
+    #         sim = sim.masked_fill(causal_mask, -torch.finfo(sim.dtype).max)
+
+    #     attn = sim.softmax(dim = -1)
+    #     attn = self.attn_dropout(attn)
+
+    #     out = einsum('b h i j, b j d -> b h i d', attn, v)
+
+    #     out = rearrange(out, 'b h n d -> b n (h d)')
+    #     return self.to_out(out)
+
     def forward(
         self,
         x,
@@ -481,7 +546,7 @@ class TransformerAttention(nn.Module):
         attn_mask = None,
         cond_fn: Optional[Callable] = None
     ):
-        b = x.shape[0]
+        b, n, _, h = *x.shape, self.heads
 
         if exists(context):
             context = self.context_norm(context)
@@ -496,31 +561,15 @@ class TransformerAttention(nn.Module):
 
         q, k, v = self.to_q(x), *self.to_kv(kv_input).chunk(2, dim = -1)
 
-        q = rearrange(q, 'b n (h d) -> b h n d', h = self.heads)
+        q = rearrange(q, 'b n (h d) -> b h n d', h = h)
 
         q = q * self.scale
 
-        sim = einsum('b h i d, b j d -> b h i j', q, k)
+        k = rearrange(k, 'b n (h d) -> b h n d', h = h)
+        v = rearrange(v, 'b n (h d) -> b h n d', h = h)
 
-        if exists(attn_bias):
-            sim = sim + attn_bias
-
-        if exists(attn_mask):
-            sim = sim.masked_fill(~attn_mask, -torch.finfo(sim.dtype).max)
-
-        if exists(mask):
-            mask = rearrange(mask, 'b j -> b 1 1 j')
-            sim = sim.masked_fill(~mask, -torch.finfo(sim.dtype).max)
-
-        if self.causal:
-            i, j = sim.shape[-2:]
-            causal_mask = torch.ones((i, j), dtype = torch.bool, device = x.device).triu(j - i + 1)
-            sim = sim.masked_fill(causal_mask, -torch.finfo(sim.dtype).max)
-
-        attn = sim.softmax(dim = -1)
-        attn = self.attn_dropout(attn)
-
-        out = einsum('b h i j, b j d -> b h i d', attn, v)
+        # Calculate attention using the Attend module
+        out = self.attend(q, k, v, mask = mask)
 
         out = rearrange(out, 'b h n d -> b n (h d)')
         return self.to_out(out)
@@ -540,8 +589,8 @@ class Transformer(nn.Module):
         self.layers = nn.ModuleList([])
         for _ in range(depth):
             self.layers.append(nn.ModuleList([
-                # TransformerAttention(dim = dim, heads =  heads, dropout = attn_dropout),
-                flash_attn(dim = dim, heads =  heads, dropout = attn_dropout),
+                TransformerAttention(dim = dim, heads =  heads, dropout = attn_dropout),
+                # flash_attn(dim = dim, heads =  heads, dropout = attn_dropout),
                 FeedForward(dim = dim, dropout = ff_dropout)
             ]))
 
