@@ -56,10 +56,10 @@ def posemb_sincos_1d(seq, dim, temperature = 10000, device = None, dtype = torch
 
 # flasha attention
 def flash_attn(
-self,
-q, k, v,
-mask = None,
-attn_bias = None
+    self,
+    q, k, v,
+    mask = None,
+    attn_bias = None
 ):
     batch, heads, q_len, _, k_len, is_cuda, device = *q.shape, k.shape[-2], q.is_cuda, q.device
 
@@ -385,12 +385,18 @@ class MaxViT(nn.Module):
                         shrinkage_rate = mbconv_shrinkage_rate
                     ),
                     Rearrange('b d (x w1) (y w2) -> b x y w1 w2 d', w1 = w, w2 = w),  # block-like attention
-                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = ropout, window_size = w)),
+                    Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w)),
+                    # Residual(flash_attn(dim = layer_dim, dim_head = dim_head, dropout=dropout, window_size = w )),
+
                     Residual(FeedForward(dim = layer_dim, dropout = dropout)),
                     Rearrange('b x y w1 w2 d -> b d (x w1) (y w2)'),
 
                     Rearrange('b d (w1 x) (w2 y) -> b x y w1 w2 d', w1 = w, w2 = w),  # grid-like attention
+#
                     Residual(Attention(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w)),
+                    # Residual(flash_attn(dim = layer_dim, dim_head = dim_head, dropout = dropout, window_size = w )),
+
+
                     Residual(FeedForward(dim = layer_dim, dropout = dropout)),
                     Rearrange('b x y w1 w2 d -> b d (w1 x) (w2 y)'),
                 )
