@@ -174,3 +174,8 @@ This project is licensed under the [MIT License](https://github.com/kyegomez/Mec
 
 * Integrate Kosmos-X, Kosmos-2, PALM-E, ROBOCAT, any other robotic models we should integrate? Let me know!
 
+* Integrate embedding provider for RT-1
+
+* Integrate flash attention for RT-1
+
+* Integrate flasha Attention for GATO
