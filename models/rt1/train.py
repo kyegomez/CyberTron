@@ -38,8 +38,7 @@ from transformers import (AutoTokenizer, default_data_collator,
 
 
 from models.rt1.model import model
-
-
+from utils.stable_adam import StableAdamWUnfused
 ############ SETUP CONFIG
 # import torch.distributed as dist
 

@@ -1,4 +1,4 @@
-classifier_free_guidance_pytorch
+classifier-free-guidance-pytorch
 torch
 lion_pytorch
 transformers
