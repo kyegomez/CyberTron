@@ -5,6 +5,15 @@
 [![GitHub issues](https://img.shields.io/github/issues/kyegomez/CyberTron)](https://github.com/kyegomez/CyberTron/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/kyegomez/CyberTron)](https://github.com/kyegomez/CyberTron/pulls)
 
+## Share with Friends
+
+Help us spread the word about CyberTron by sharing it with your friends and colleagues on various social media platforms:
+
+[![Share on Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron)](https://twitter.com/intent/tweet?text=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%20%23CyberTron%20%23OpenSource%20%23Robotics%20%23AI%20%23MachineLearning&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron) [![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-blue)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&summary=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.&source=) [![Share on Facebook](https://img.shields.io/badge/Share%20on-Facebook-blue)](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&t=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models) [![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-orange)](https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)[![Share on WhatsApp](https://img.shields.io/badge/Share%20on-WhatsApp-green)](https://wa.me/?text=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%0A%0AGitHub%20Repository%3A%20https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron) [![Share on Pinterest](https://img.shields.io/badge/Share%20on-Pinterest-red)](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&media=&description=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models) [![Share on Tumblr](https://img.shields.io/badge/Share%20on-Tumblr-blue)](https://www.tumblr.com/share/link?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&name=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&description=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.) [![Share on Hacker News](https://img.shields.io/badge/Share%20on-Hacker%20News-orange)](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&t=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)[![Share on VK](https://img.shields.io/badge/Share%20on-VK-blue)](https://vk.com/share.php?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
+
+We appreciate your support in sharing CyberTron and making it accessible to the wider community!
+
+
 CyberTron is an open-source suite of robotic transformers models designed to simplify the training, finetuning, and inference processes. With its plug-and-play functionality, CyberTron provides an easy-to-use interface to effortlessly utilize a variety of robotic transformers models. Whether you're working on robotics research, autonomous systems, or AI-driven robotic applications, CyberTron offers a comprehensive toolkit to enhance your projects.
 
 ## Key Features
@@ -133,31 +142,6 @@ This section provides an overview of the datasets used in the project. The datas
 
 Please note that the dataset descriptions provided are a summary. To access the datasets from Hugging Face, please visit the Hugging Face website and search for the respective dataset names.
 
-
-## Share with Friends
-
-Help us spread the word about CyberTron by sharing it with your friends and colleagues on various social media platforms:
-
-[![Share on Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron)](https://twitter.com/intent/tweet?text=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%20%23CyberTron%20%23OpenSource%20%23Robotics%20%23AI%20%23MachineLearning&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron)
-
-[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-blue)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&summary=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.&source=)
-
-[![Share on Facebook](https://img.shields.io/badge/Share%20on-Facebook-blue)](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&t=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
-
-[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-orange)](https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
-
-[![Share on WhatsApp](https://img.shields.io/badge/Share%20on-WhatsApp-green)](https://wa.me/?text=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.%0A%0AGitHub%20Repository%3A%20https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron)
-
-
-[![Share on Pinterest](https://img.shields.io/badge/Share%20on-Pinterest-red)](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&media=&description=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
-
-[![Share on Tumblr](https://img.shields.io/badge/Share%20on-Tumblr-blue)](https://www.tumblr.com/share/link?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&name=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models&description=Check%20out%20CyberTron%2C%20an%20open-source%20suite%20of%20robotic%20transformers%20models%20for%20training%2C%20finetuning%2C%20and%20inference%20in%20robotics%20applications.)
-
-[![Share on Hacker News](https://img.shields.io/badge/Share%20on-Hacker%20News-orange)](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&t=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
-
-[![Share on VK](https://img.shields.io/badge/Share%20on-VK-blue)](https://vk.com/share.php?url=https%3A%2F%2Fgithub.com%2Fkyegomez%2FCyberTron&title=CyberTron%20-%20Open-Source%20Suite%20of%20Robotic%20Transformers%20Models)
-
-We appreciate your support in sharing CyberTron and making it accessible to the wider community!
 
 ## Contributing
 
