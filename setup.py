@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
 setup(
-  name = 'MechCore',
+  name = 'cybertron',
   packages = find_packages(exclude=[]),
   version = '0.0.1',
   license='MIT',
-  description = 'MechCore- Pytorch',
+  description = 'cybertron- Pytorch',
   author = 'Kye Gomez',
   author_email = 'kye@apac.ai',
   long_description_content_type = 'text/markdown',
-  url = 'https://github.com/kyegomez/MechaZilla',
+  url = 'https://github.com/kyegomez/cybertron',
   keywords = [
     'artificial intelligence',
     'deep learning',

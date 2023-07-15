@@ -51,3 +51,16 @@ Testing and Evaluation: Test the model on a separate validation set and evaluate
 
 Deployment and Monitoring: Deploy the model in a production environment and set up a monitoring and logging system to track its performance and debug any issues.
 
+
+
+# Components?
+
+* Kosmos as base Multi-Modal LLM
+
+* Stable diffusion or multi-modal generator diffuser for dataset generator like celestial, or visual nexus
+
+* PPO/ TRL TRLX for reward model
+
+* QLORA and Lora + reward modelling 
+
+* Sparse quantization
