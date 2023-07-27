@@ -3,13 +3,11 @@ import os
 import json
 import time
 
-import numpy as np
 import torch
 
 from gato.utils.utils import DotDict
 from gato.policy.gato_policy import GatoPolicy
 from gato.envs.setup_env import load_envs
-from gato.training.trainer import Trainer
 from gato.tasks.control_task import ControlTask
 
 
@@ -91,7 +89,7 @@ def main(args):
     logs['time/evaluation'] = time.time() - eval_start
 
     print('=' * 80)
-    print(f'Evaluation results:')
+    print('Evaluation results:')
     for k, v in logs.items():
         print(f'{k}: {v}')
 

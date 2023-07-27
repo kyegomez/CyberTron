@@ -134,7 +134,7 @@ class Trainer:
             sampled_task_indices.extend(new_tasks)
 
         n_prompted_episodes = round(batch_size * self.args.prompt_ep_proportion)
-        vanilla_batch_size = batch_size - n_prompted_episodes
+        batch_size - n_prompted_episodes
 
         # determine prompted episodes and their prompting type (end or uniform)
         prompt_indices = np.random.choice(batch_size, size=n_prompted_episodes, replace=False).tolist()

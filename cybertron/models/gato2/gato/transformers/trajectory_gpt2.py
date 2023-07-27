@@ -21,15 +21,12 @@ from typing import List, Optional, Tuple
 
 import torch
 import torch.nn as nn
-from torch.nn import CrossEntropyLoss, MSELoss
 
 from transformers.activations import ACT2FN
 from transformers.file_utils import (
     ModelOutput,
-    add_code_sample_docstrings,
     add_start_docstrings,
     add_start_docstrings_to_model_forward,
-    replace_return_docstrings,
 )
 from transformers.modeling_outputs import (
     BaseModelOutputWithPastAndCrossAttentions,
@@ -37,7 +34,6 @@ from transformers.modeling_outputs import (
 from transformers.modeling_utils import (
     Conv1D,
     PreTrainedModel,
-    SequenceSummary,
     find_pruneable_heads_and_indices,
     prune_conv1d_layer,
 )

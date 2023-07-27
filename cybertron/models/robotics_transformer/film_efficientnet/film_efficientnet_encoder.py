@@ -25,7 +25,6 @@ import os
 import warnings
 import json
 
-from absl import logging
 import tensorflow.compat.v2 as tf
 from tensorflow.keras import layers
 

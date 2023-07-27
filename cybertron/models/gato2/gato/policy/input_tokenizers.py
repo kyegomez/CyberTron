@@ -1,5 +1,4 @@
 import torch
-import torch.nn as nn
 import math
 
 def mu_law(tensor, mu=100, M=256): 
