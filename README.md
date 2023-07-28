@@ -82,66 +82,7 @@ Sure! Here's an example of a table-like format in the README.md file, showcasing
 
 
 ## Datasets Directory
-
-
-This section provides an overview of the datasets used in the project. The datasets are divided into two categories: control datasets used to train Gato and vision & language datasets used for vision and language tasks.
-
-### Control Datasets
-
-## GATO
-
-| Dataset | Tasks |
-|---------|-------|
-| DM Lab | 254 |
-| ALE Atari | 51 |
-| ALE Atari Extended | 28 |
-| Sokoban | 1 |
-| BabyAI | 46 |
-| DM Control Suite | 30 |
-| DM Control Suite Pixels | 28 |
-| DM Control Suite Random Small | 26 |
-| DM Control Suite Random Large | 26 |
-| Meta-World | 45 |
-| Procgen Benchmark | 16 |
-| RGB Stacking simulator | 1 |
-| RGB Stacking real robot | 1 |
-| Modular RL | 38 |
-| DM Manipulation Playground | 4 |
-| Playroom | 1 |
-
-### Vision / Language Datasets
-
-| Dataset | Tasks |
-|---------|-------|
-| MassiveText | N/A |
-| M3W | N/A |
-| ALIGN | N/A |
-| MS-COCO Captions | N/A |
-| Conceptual Captions | N/A |
-| LTIP | N/A |
-| OKVQA | N/A |
-| VQAV2 | N/A |
-
-## PALM-E Datasets
-
-| Dataset | Tasks |
-|---------|-------|
-| Webli (Chen et al., 2022) | N/A |
-| VQ2A (Changpinyo et al., 2022) | N/A |
-| VQG (Changpinyo et al., 2022) | N/A |
-| CC3M (Sharma et al., 2018) | N/A |
-| Object Aware (Piergiovanni et al., 2022) | N/A |
-| OKVQA (Marino et al., 2019) | N/A |
-| VQAv2 (Goyal et al., 2017) | N/A |
-| COCO (Chen et al., 2015) | N/A |
-| Wikipedia text | N/A |
-| (robot) Mobile Manipulator, real | N/A |
-| (robot) Language Table (Lynch et al., 2022), sim and real | N/A |
-| (robot) TAMP, sim | N/A |
-
-
-Please note that the dataset descriptions provided are a summary. To access the datasets from Hugging Face, please visit the Hugging Face website and search for the respective dataset names.
-
+This section provides an overview of the datasets used in the project. The datasets are divided into two categories: control datasets used to train Gato and vision & language datasets used for vision and language tasks. [Click here to go to the datasets library](DOCs/DATASETS.md)
 
 ## Contributing
 
