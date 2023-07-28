@@ -105,4 +105,4 @@ This project is licensed under the [MIT License](https://github.com/kyegomez/Cyb
 
 * Integrate flasha Attention for GATO
 
-* 
+* [Integrate VC-1](https://github.com/facebookresearch/eai-vc)
