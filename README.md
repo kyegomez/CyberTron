@@ -1,3 +1,6 @@
+[![Multi-Modality](agorabanner.png)](https://discord.gg/qUtxnK2NMf)
+
+
 # CyberTron
 
 [![GitHub license](https://img.shields.io/github/license/kyegomez/CyberTron)](https://github.com/kyegomez/CyberTron/blob/main/LICENSE)
